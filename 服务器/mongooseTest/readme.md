@@ -1,0 +1,33 @@
+分类导航栏和分类菜单数据
+1.get 请求需要获取的数据有：
+一级分类列表
+{
+    _id:当前菜单的唯一标识
+    name:当前一级菜单的名称
+    id:二级菜单要继承的id
+    //二级分类列表
+    subCateList{
+      showIndex:当前二级分类菜单属于第几个
+      superCategoryId:所继承的一级分类菜单
+      level:当前菜单所属等级
+      wapBannerUrl:当前菜单所对应的图片地址
+      name:当前二级菜单的名字
+      id:当前二级菜单的id
+      frontDesc:描述
+      subCateList:三级分类菜单
+      frontName:
+    }
+}
+2.post请求
+  {
+    _id:数据库会动态生成
+    id:7位数，以10开头，后面的五位数是随机数
+    categoryType:默认是0
+    showIndex:一级菜单默认是0，二级菜单默认是数组下标
+    superCategoryId:一级菜单默认是0，二级菜单是所继承的一级菜单id
+    bannerUrl:图片地址，一级菜单默认为空，二级菜单为当前图片的地址
+    name:字符类型，当前菜单的名字
+    id:当前菜单的id,一级菜单七位数，二级菜单九位数，以10开头
+    type：数字类型，默认为0
+    subCateList:数组类型
+  }
