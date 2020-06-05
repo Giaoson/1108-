@@ -5,7 +5,7 @@ import router from './router'
 import 'vant/lib/index.css'
 // import 'amfe-flexible'
 // import 'vant.css'
-import 'lib-flexible'
+// import 'lib-flexible'
 Vue.config.productionTip = false
 
 new Vue({

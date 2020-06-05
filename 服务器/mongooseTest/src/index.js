@@ -6,6 +6,7 @@ const path = require('path')
 require('./db')
     //操作数据库
 const CategoryList = require('./models/categoryList.js')
+const HomeDatas = require('./models/homeDatas')
 const app = express();
 //向外暴露静态资源
 app.use(express.static(path.resolve(__dirname, 'public')))
@@ -14,9 +15,16 @@ app.use(express.json())
     //设置路由
 app.get('/categoryList', async(req, res) => {
     //处理客户端发送的获取分类列表请求
+    console.log('开始请求了')
     const result = await CategoryList.find()
     console.log('请求结果', result)
     res.json({ code: 1000, data: { categoryList: result } })
+})
+app.get('/homedatas', async(req, res) => {
+    console.log('开始请求首页数据了')
+    const result = await HomeDatas.find()
+    console.log('请求结果', result)
+    res.json({ code: 1000, data: { homedatas: result } })
 })
 app.listen(9527, 'localhost', (err) => {
     if (err) {
